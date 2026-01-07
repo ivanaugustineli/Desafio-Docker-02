@@ -22,8 +22,6 @@ Suba tudo em um repositório e faça a entrega.
 Para instalar as imgens e containeres, basta executar:
     
     docker-compose up -d
-    ou
-    docker-compose up --build
 
 em seguida, testar atravez de um navegador:
 
