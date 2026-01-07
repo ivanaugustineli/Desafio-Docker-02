@@ -20,9 +20,11 @@ Suba tudo em um repositório e faça a entrega.
 * A linguagem de programação para este desafio é Node/JavaScript. "
 
 Para instalar as imgens, executar: 
-    docker push ivanaugustineli/desafio-docker-02-app:tagname
+
+    docker push ivanaugustineli/desafio-docker-02-app:latest
 
 e containeres, basta executar:
+    
     docker-compose up -d
     ou
     docker-compose up --build
