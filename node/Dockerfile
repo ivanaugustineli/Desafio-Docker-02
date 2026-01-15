@@ -1,5 +1,10 @@
 FROM node:18-alpine
 
+WORKDIR /usr/src/app
+COPY package*.json ./
+RUN npm install
+COPY . .
+
 # Instala dockerize para aguardar o MySQL
 ENV DOCKERIZE_VERSION = v0.6.1
 RUN apk add --no-cache wget \
@@ -7,12 +12,11 @@ RUN apk add --no-cache wget \
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-WORKDIR /usr/src/app
-
-COPY package*.json ./
-RUN npm install --only=production
-
-COPY . .
+#WORKDIR /usr/src/app
+#COPY package*.json ./
+#COPY index.js ./usr/src/app
+#RUN npm install --only=production
+#COPY . .
 
 EXPOSE 3000
 
