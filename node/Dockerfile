@@ -12,12 +12,6 @@ RUN apk add --no-cache wget \
     && tar -C /usr/local/bin -xzvf dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
     && rm dockerize-alpine-linux-amd64-$DOCKERIZE_VERSION.tar.gz
 
-#WORKDIR /usr/src/app
-#COPY package*.json ./
-#COPY index.js ./usr/src/app
-#RUN npm install --only=production
-#COPY . .
-
 EXPOSE 3000
 
 # Aguarda MySQL na porta 3306 antes de iniciar
