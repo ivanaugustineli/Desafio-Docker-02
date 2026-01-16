@@ -8,8 +8,14 @@ services:
     image: ivanaugustineli/desafio-docker-02-app
     container_name: node_app
     restart: always
+   
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s 
+    command: "node index.js"
+   
     volumes: 
-      - /usr/src/app
+      - ./node:/usr/src/app
+      - node_modules:/usr/src/app/node_modules
+
     depends_on:
       - db
     networks:
@@ -45,3 +51,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  node_modules:
